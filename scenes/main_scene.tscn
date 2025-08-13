@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://6afvt5fnv4h7"]
+
+[ext_resource type="Script" uid="uid://crawneokkqrha" path="res://scripts/board/board.gd" id="1_w2twt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2twt"]
+albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pw63i"]
+material = SubResource("StandardMaterial3D_w2twt")
+
+[node name="MainScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.32912)
+projection = 1
+size = 10.0
+
+[node name="Board" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_w2twt")
+
+[node name="BoardMesh" type="MeshInstance3D" parent="Board"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -5, 0)
+mesh = SubResource("BoxMesh_pw63i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.600434, -0.362535, 0.712775, -4.94396e-09, 0.891331, 0.453353, -0.799674, -0.272208, 0.535186, 3.0769, 2.01623, 3.2767)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfam2cdq6dtd6"]
+
+[ext_resource type="Script" uid="uid://c83o7iw4wrwt5" path="res://scripts/fruit_wrapper.gd" id="1_ppjve"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dwle7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppjve"]
+albedo_color = Color(0.176419, 0.176419, 0.176419, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppjve"]
+
+[node name="Fruit" type="Node3D"]
+script = ExtResource("1_ppjve")
+mesh_color = Color(0.886275, 0.886275, 0.886275, 1)
+
+[node name="Fruit" type="StaticBody3D" parent="."]
+
+[node name="MeshHolder" type="MeshInstance3D" parent="Fruit"]
+mesh = SubResource("BoxMesh_dwle7")
+surface_material_override/0 = SubResource("StandardMaterial3D_ppjve")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fruit"]
+shape = SubResource("BoxShape3D_ppjve")
+
+[connection signal="input_event" from="Fruit" to="." method="_on_fruit_input_event"]
