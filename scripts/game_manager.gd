@@ -1,11 +1,12 @@
 extends Node
 
-signal fruit_click(fruit: Node3D)
+var _board_state: BoardState = BoardState.new(8, 8, 0.05)
 
-var board_state: BoardState
+func set_board_state(state: BoardState)-> void:
+	_board_state = state
 
-func set_board_state(state: Dictionary)-> void:
-	board_state.update(state)
+func update_board_state(partial: Dictionary)-> void:
+	_board_state.update(partial)
 
 func get_board_state() -> BoardState:
-	return board_state
+	return _board_state

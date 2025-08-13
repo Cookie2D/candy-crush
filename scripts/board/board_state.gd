@@ -3,12 +3,14 @@ extends RefCounted
 
 var grid_width: int
 var grid_height: int
-var cells: Array
+var gap_percentage: float
+var cells: Array = []
+var pressedItem: Node3D = null
 
-func _init(_w: int, _h: int, _cells: Array):
+func _init(_w: int, _h: int, _gap):
 	grid_width = _w
 	grid_height = _h
-	cells = _cells
+	gap_percentage = _gap
 
 func update(fields: Dictionary) -> void:
 	for key in fields.keys():
